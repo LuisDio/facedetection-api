@@ -36,7 +36,7 @@ app.get('/', (req, res) => {
 
 app.post('/signin', (req, res) => {
     if (req.body.email === database.users[0].email && req.body.password === database.users[0].password) {
-        res.json('Success');
+        res.json(database.users[0]);
     } else {
         res.status(404).json('Error logging in')
     }
@@ -51,7 +51,6 @@ app.post('/register', (req, res) => {
         id: '125',
         name: name,
         email: email,
-        password: password,
         entries: 0,
         joined: new Date()
     });
